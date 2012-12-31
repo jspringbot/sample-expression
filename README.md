@@ -1,4 +1,4 @@
-jSpringBot Config Sample
+jSpringBot Expression Sample
 =======
 
 ### Introduction
