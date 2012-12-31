@@ -7,12 +7,31 @@ Simple expressions
     Evaluate Expression Should Be True      \#{contains('alvin', 'vin')}
     Evaluate Expression Should Be True      \#{1+1 eq 2}
     Evaluate Expression Should Be True      \#{true}
+    Evaluate Expression Should Be True      \#{empty ''}
+    Evaluate Expression Should Be True      \#{not empty 'not-empty'}
     Evaluate Expression Should Be Null      \#{null}
     Evaluate Expression Should Not Be Null  \#{'sample string'}
 
 Expressions with variables
     [Tags]  variables
-    Add Expression Variable     str     sample string
+    Add Expression Variable                 var1     a
+    Add Expression Variable                 var2     a
+    Add Expression Variable                 var3     \#{i:3}
+    Add Expression Variable                 var4     \#{i:10}
+    Evaluate Expression Should Be True      \#{var3 + var4 eq 13}
+    Evaluate Expression Should Be True      \#{var4 > var3}
+    Evaluate Expression Should Be True      \#{var1 eq var2}
+
+Expressions with methods
+    [Tags]  methods
+    Add Expression Variable                 str     sample string
     Evaluate Expression Should Be True      \#{contains(str, 'sample')}
     Evaluate Expression Should Be True      \#{startsWith(str, 'sample')}
     Evaluate Expression Should Be True      \#{endsWith(str, 'string')}
+
+Expression with inline variables
+    [Tags]  inline-variables
+    Evaluate Expression Should Be True      \#{contains($1, $2)}                        alvin   vin
+    Evaluate Expression Should Be True      \#{$1 + $2 eq $3}                           1       1       2
+    Evaluate Expression Should Be True      \#{concat($1, $2, $3) eq 'abc'}             a       b       c
+    Evaluate Expression Should Be True      \#{join('-', $1, $2, $3) eq 'a-b-c'}        a       b       c
