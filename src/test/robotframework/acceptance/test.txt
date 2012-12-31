@@ -1,0 +1,18 @@
+*** Settings ***
+Library           org.jspringbot.spring.GlobalSpringLibrary    spring/spring-global.xml
+
+*** Test Cases ***
+Simple expressions
+    [Tags]  simple
+    Evaluate Expression Should Be True      \#{contains('alvin', 'vin')}
+    Evaluate Expression Should Be True      \#{1+1 eq 2}
+    Evaluate Expression Should Be True      \#{true}
+    Evaluate Expression Should Be Null      \#{null}
+    Evaluate Expression Should Not Be Null  \#{'sample string'}
+
+Expressions with variables
+    [Tags]  variables
+    Add Expression Variable     str     sample string
+    Evaluate Expression Should Be True      \#{contains(str, 'sample')}
+    Evaluate Expression Should Be True      \#{startsWith(str, 'sample')}
+    Evaluate Expression Should Be True      \#{endsWith(str, 'string')}
