@@ -35,3 +35,13 @@ Expression with inline variables
     EL Should Be True      \#{$1 + $2 eq $3}                           1       1       2
     EL Should Be True      \#{concat($1, $2, $3) eq 'abc'}             a       b       c
     EL Should Be True      \#{join('-', $1, $2, $3) eq 'a-b-c'}        a       b       c
+
+Expression with robot variables
+    [Tags]  robot-variables
+    # long
+    ${sum}=     EL Evaluate     \#{1 + 2}
+    EL Should Be True           \#{${sum} eq 3}
+    # string
+    ${str}=     EL Evaluate     \#{join('-', $1, $2, $3)}    a   b   c
+    EL Should Be True           \#{'${str}' eq 'a-b-c'}
+
