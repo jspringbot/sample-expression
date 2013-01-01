@@ -4,34 +4,34 @@ Library           org.jspringbot.spring.GlobalSpringLibrary    spring/spring-glo
 *** Test Cases ***
 Simple expressions
     [Tags]  simple
-    Evaluate Expression Should Be True      \#{contains('alvin', 'vin')}
-    Evaluate Expression Should Be True      \#{1+1 eq 2}
-    Evaluate Expression Should Be True      \#{true}
-    Evaluate Expression Should Be True      \#{empty ''}
-    Evaluate Expression Should Be True      \#{not empty 'not-empty'}
-    Evaluate Expression Should Be Null      \#{null}
-    Evaluate Expression Should Not Be Null  \#{'sample string'}
+    EL Should Be True      \#{contains('alvin', 'vin')}
+    EL Should Be True      \#{1+1 eq 2}
+    EL Should Be True      \#{true}
+    EL Should Be True      \#{empty ''}
+    EL Should Be True      \#{not empty 'not-empty'}
+    EL Should Be Null      \#{null}
+    EL Should Not Be Null  \#{'sample string'}
 
 Expressions with variables
     [Tags]  variables
-    Add Expression Variable                 var1     a
-    Add Expression Variable                 var2     a
-    Add Expression Variable                 var3     \#{i:3}
-    Add Expression Variable                 var4     \#{i:10}
-    Evaluate Expression Should Be True      \#{var3 + var4 eq 13}
-    Evaluate Expression Should Be True      \#{var4 > var3}
-    Evaluate Expression Should Be True      \#{var1 eq var2}
+    EL Add Variable        var1     a
+    EL Add Variable        var2     a
+    EL Add Variable        var3     \#{i:3}
+    EL Add Variable        var4     \#{i:10}
+    EL Should Be True      \#{var3 + var4 eq 13}
+    EL Should Be True      \#{var4 > var3}
+    EL Should Be True      \#{var1 eq var2}
 
 Expressions with methods
     [Tags]  methods
-    Add Expression Variable                 str     sample string
-    Evaluate Expression Should Be True      \#{contains(str, 'sample')}
-    Evaluate Expression Should Be True      \#{startsWith(str, 'sample')}
-    Evaluate Expression Should Be True      \#{endsWith(str, 'string')}
+    EL Add Variable        str     sample string
+    EL Should Be True      \#{contains(str, 'sample')}
+    EL Should Be True      \#{startsWith(str, 'sample')}
+    EL Should Be True      \#{endsWith(str, 'string')}
 
 Expression with inline variables
     [Tags]  inline-variables
-    Evaluate Expression Should Be True      \#{contains($1, $2)}                        alvin   vin
-    Evaluate Expression Should Be True      \#{$1 + $2 eq $3}                           1       1       2
-    Evaluate Expression Should Be True      \#{concat($1, $2, $3) eq 'abc'}             a       b       c
-    Evaluate Expression Should Be True      \#{join('-', $1, $2, $3) eq 'a-b-c'}        a       b       c
+    EL Should Be True      \#{contains($1, $2)}                        alvin   vin
+    EL Should Be True      \#{$1 + $2 eq $3}                           1       1       2
+    EL Should Be True      \#{concat($1, $2, $3) eq 'abc'}             a       b       c
+    EL Should Be True      \#{join('-', $1, $2, $3) eq 'a-b-c'}        a       b       c
