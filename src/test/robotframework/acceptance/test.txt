@@ -1,5 +1,9 @@
 *** Settings ***
-Library           org.jspringbot.spring.GlobalSpringLibrary    spring/spring-global.xml
+Library     JSpringBotGlobal
+Library     Collections
+
+*** Variables ***
+${domain_name}=    domain1
 
 *** Test Cases ***
 Simple expressions
@@ -45,3 +49,18 @@ Expression with robot variables
     ${str}=     EL Evaluate     $[join('-', $1, $2, $3)]    a   b   c
     EL Should Be True           $['${str}' eq 'a-b-c']
 
+Expression Var Method
+    [Tags]  var-method
+    ${string}=              Set Variable            some string
+    ${integer}=             Convert To Integer      100
+    ${boolean}=             Convert To Boolean      true
+    ${number}=              Convert To Number       42.512
+    @{list} =               Create List             a       b       c
+    ${dictionary} =         Create Dictionary       a       1       b       2
+    EL Should Be True       $[var('domain_name') eq 'domain1']
+    EL Should Be True       $[var('string') eq 'some string']
+    EL Should Be True       $[var('integer') eq 100]
+    EL Should Be True       $[var('boolean')]
+    EL Should Be True       $[var('number') eq 42.512]
+    EL Should Be True       $[var('list')[0] eq 'a']
+    EL Should Be True       $[var('dictionary')['a'] eq '1']
