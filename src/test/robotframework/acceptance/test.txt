@@ -64,3 +64,18 @@ Expression Var Method
     EL Should Be True       $[var('number') eq 42.512]
     EL Should Be True       $[var('list')[0] eq 'a']
     EL Should Be True       $[var('dictionary')['a'] eq '1']
+
+Expression Run Keyword
+    [Tags]  run-keyword
+    EL Run Keyword      Log Many        $[1]    $[var('domain_name')]
+    @{list}=            EL Run Keyword  Create List   $[i:100]       $[i:5]       $[true]
+    EL Should Be Equal  $[var('list')[0]]  $[i:100]
+    EL Should Be Equal  $[var('list')[1]]  $[i:5]
+    EL Should Be True   $[var('list')[2]]
+    ${n1}=              Convert To Integer      10
+    ${n2}=              Convert To Integer      5
+    @{list2} =          Create List             ${n1}       ${n2}       c
+    EL Should Be Equal  $[var('list2')[0]]  $[i:10]
+    EL Should Be Equal  $[var('list2')[1]]  $[i:5]
+
+
