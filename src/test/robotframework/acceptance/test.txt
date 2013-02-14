@@ -78,4 +78,9 @@ Expression Run Keyword
     EL Should Be Equal  $[var('list2')[0]]  $[i:10]
     EL Should Be Equal  $[var('list2')[1]]  $[i:5]
 
-
+Expression replaceVar Method
+    [Tags]  replace-var-method
+    ${URL}=             Set Variable    http://google.com
+    EL Add Variable     betID           $[i:4496]
+    EL Add Variable     betItemID       $[i:1592]
+    EL Should Be True   $[replaceVars('\${URL}/resource/bet-items/\${betID}/\${betItemID}') eq 'http://google.com/resource/bet-items/4496/1592']
