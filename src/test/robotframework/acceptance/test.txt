@@ -81,9 +81,9 @@ Expression Run Keyword
 Expression replaceVar Method
     [Tags]  replace-var-method
     ${URL}=             Set Variable    http://google.com
-    EL Add Variable     betID           $[i:4496]
-    EL Add Variable     betItemID       $[i:1592]
-    EL Should Be True   $[replaceVars('\${URL}/resource/bet-items/\${betID}/\${betItemID}') eq 'http://google.com/resource/bet-items/4496/1592']
+    EL Add Variable     x               $[i:1]
+    EL Add Variable     y               $[i:2]
+    EL Should Be True   $[replaceVars('\${URL}/points/\${x}/\${y}') eq 'http://google.com/points/1/2']
 
 Expression Run Keyword For Each
     [Tags]  run-keyword-for-each
