@@ -90,6 +90,7 @@ Expression Run Keyword For Each
     EL Add Variable     list    $[array:asList(1,2,3)]
     EL Add Variable     excludeIndices    $[array:asList(0)]
     EL Run Keyword For Each  Log Item   item     $[list]
+    EL Run Keyword For Random  Log Item   10    item     $[list]
 
 *** Keywords ***
 Log Item
