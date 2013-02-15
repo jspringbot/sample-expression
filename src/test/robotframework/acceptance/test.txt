@@ -84,3 +84,13 @@ Expression replaceVar Method
     EL Add Variable     betID           $[i:4496]
     EL Add Variable     betItemID       $[i:1592]
     EL Should Be True   $[replaceVars('\${URL}/resource/bet-items/\${betID}/\${betItemID}') eq 'http://google.com/resource/bet-items/4496/1592']
+
+Expression Run Keyword For Each
+    [Tags]  run-keyword-for-each
+    EL Add Variable     list    $[array:asList(1,2,3)]
+    EL Add Variable     excludeIndices    $[array:asList(0)]
+    EL Run Keyword For Each  Log Item   item     $[list]
+
+*** Keywords ***
+Log Item
+    EL Run Keyword      Log     $[item]
