@@ -6,16 +6,6 @@ Library     Collections
 ${domain_name}=    domain1
 
 *** Test Cases ***
-Access Robot Variable IN EL Functions
-    ${str1}=            Set Variable    hello
-    ${str2}=            Set Variable    world
-    EL Add variable     text            $[concat(var('str1'), ' ', var('str2'))]
-
-Access EL Variable in EL Functions
-    EL Add Variable     str1            hello
-    EL Add Variable     str2            world
-    EL Add variable     text            $[concat(eval('$[str1]'), ' ', eval('$[str2]'))]
-
 Simple expressions
     [Tags]  simple
     EL Should Be True      $[contains('alvin', 'vin')]
@@ -74,6 +64,13 @@ Expression Var Method
     EL Should Be True       $[var('number') eq 42.512]
     EL Should Be True       $[var('list')[0] eq 'a']
     EL Should Be True       $[var('dictionary')['a'] eq '1']
+
+Expression Eval Method
+    [Tags]  eval-method
+    EL Add Variable         str1        hello
+    EL Add Variable         str2        world
+    EL Add variable         text        $[concat(eval('$[str1]'), ' ', eval('$[str2]'))]
+    EL Should Be Equal      $[text]     hello world
 
 Expression Run Keyword
     [Tags]  run-keyword
