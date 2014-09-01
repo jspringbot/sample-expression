@@ -63,16 +63,12 @@
     </developer>
   </developers>
 
-  <distributionManagement>
+  <repositories>
     <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>sonatype-nexus</id>
+      <url>https://oss.sonatype.org/content/groups/public/</url>
     </repository>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
+  </repositories>
 
   <build>
     <plugins>
