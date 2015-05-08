@@ -14,12 +14,8 @@ Initial Run to fetch all dependencies:
 2. Execute the following command to run test. `mvn clean integration-test` 
 3. View the generated report and logs from browser.
 
-## Author
-
-[Alvin R. de Leon](https://github.com/alvinrdeleon/).
-
 ## Copyright and license
 
-Copyright 2012 JSpringBot
+Copyright 2015 JSpringBot
 
 Code licensed under [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0).
