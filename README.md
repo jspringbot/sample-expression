@@ -16,10 +16,7 @@ Initial Run to fetch all dependencies:
 
 ## Author
 
-Designed and built by [Shiela D. Buitizon](https://github.com/badong2210/).
-
-Contributor: [Alvin R. de Leon](https://github.com/alvinrdeleon/).
-
+[Alvin R. de Leon](https://github.com/alvinrdeleon/).
 
 ## Copyright and license
 
