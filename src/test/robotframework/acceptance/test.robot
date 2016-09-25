@@ -56,7 +56,7 @@ Expression Var Method
     ${boolean}=             Convert To Boolean      true
     ${number}=              Convert To Number       42.512
     @{list} =               Create List             a       b       c
-    ${dictionary} =         Create Dictionary       a       1       b       2
+    ${dictionary} =         Create Dictionary       a=1     b=2
     EL Should Be True       $[var('domain_name') eq 'domain1']
     EL Should Be True       $[var('string') eq 'some string']
     EL Should Be True       $[var('integer') eq 100]
