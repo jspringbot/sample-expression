@@ -1,7 +1,7 @@
 sample-expression [![Build Status](https://travis-ci.org/jspringbot/sample-expression.svg?branch=master)](https://travis-ci.org/jspringbot/sample-expression)
 ====
 jSpringBot Expression Sample
-=======
+
 
 ### Introduction
 
