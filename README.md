@@ -1,4 +1,6 @@
-jSpringBot Expression Sample [![Build Status](https://buildhive.cloudbees.com/job/jspringbot/job/sample-expression/badge/icon)](https://buildhive.cloudbees.com/job/jspringbot/job/sample-expression/)
+sample-expression [![Build Status](https://travis-ci.org/jspringbot/sample-expression.svg?branch=master)](https://travis-ci.org/jspringbot/sample-expression)
+====
+jSpringBot Expression Sample
 =======
 
 ### Introduction
