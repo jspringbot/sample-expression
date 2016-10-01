@@ -1,1 +1,5 @@
 language: java
+
+install: false
+
+script: mvn clean integration-test
